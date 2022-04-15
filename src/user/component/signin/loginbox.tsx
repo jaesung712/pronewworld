@@ -10,18 +10,18 @@ const Loginboxst = styled.div`
 const loginbox = (): JSX.Element =>{
     return (
         <Loginboxst>
-            <div id="jb-container">
-            
-            <div id="jb-content">
-                <img className="imgbox" src="./img/wallpaperbetter.jpg"></img>
+            <div id="si-container">
+                <form>
+                    <p className='login-text'>이메일</p>
+                    <div>
+                    <input placeholder="ID"></input>
+                    </div>
+                    <p className='login-text'>비밀번호</p>
+                    <div>
+                    <input placeholder="PW"></input>
+                    </div>
+                </form>
             </div>
-
-            <div id="jb-sidebar">
-                
-            </div>
-            
-
-    </div>
         </Loginboxst>
         
     )
