@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 //user
 import SignInPage from './user/signin';
+import Main from './user/main';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         
         {/*user*/}
         <Route path={"/"} element={<SignInPage/>} />
-        
+        <Route path={"/main"} element={<Main/>} />
       </Routes>
     </Router>
     </>

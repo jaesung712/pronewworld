@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components"; //css 사용할 때 import시켜줘야 함
+import Loginbox from "./loginbox";
 
 
 const Signboxst = styled.div`
@@ -11,7 +12,7 @@ const Signboxst = styled.div`
     margin: 100px auto;
     
     border: 1px solid #bcbcbc;
-    background-color: #A0D9D9;
+    background-color: #e1e1e5;
     border-radius: 5px;
   }
  
@@ -47,10 +48,10 @@ const signinbox = (): JSX.Element =>{
                 <img className="imgbox" src="./img/wallpaperbetter.jpg"></img>
             </div>
 
-            
+            <Loginbox></Loginbox>
             
 
-    </div>
+            </div>
         </Signboxst>
         
     )
