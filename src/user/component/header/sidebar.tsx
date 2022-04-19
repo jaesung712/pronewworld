@@ -1,56 +1,110 @@
-import React from "react";
+import React, { useState, Component } from "react";
 import styled from "styled-components";
 
 const Mainheaderst = styled.div`
-   .container{
-       background-color: #ccc;
-        width:20%;
-        height: 55rem; 
-        overflow:auto;
-        padding:0;
-        margin:0 auto;
-        float: left;
-        padding:1rem 1rem 3rem 1rem;
-   }
-   .container div:hover{
-    background-color: #ccf;
-   }
+
+main{
+	position:relative;
+	height:100vh;
+	
+	.helper{
+		background:rgba(0,0,0,0.2);
+		color:#e1e1e5;
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translate3d(-50%,-50%,0);
+		padding:1.2em 2em;
+		text-align:center;
+		border-radius:20px;
+		font-size:2em;
+		font-weight:bold;
+		
+		span{
+			color:rgba(0,0,0,0.1);
+			font-size:0.4em;
+			display:block;
+		}
+	}
+}
+
+.menu{
+	background: #e1e1e5;
+	height:100vh;
+	width:20rem;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:5;
+	outline:none;
+	
+	.avatar{
+		background:rgba(0,0,0,0.1);
+		padding:2em 0.5em;
+		text-align:center;
+		
+		h2{
+			font-weight:normal;
+			margin-bottom:0;
+		}
+	}
+	
+	ul{
+		list-style:none;
+		padding:0.5em 0;
+		margin:0;
+		
+		li{
+			padding:0.5em 1em 0.5em 3em;
+			font-size:0.95em;
+			font-weight:regular;
+			transition:all 0.15s linear;
+			cursor:pointer;
+            color: #9b9ba8;
+			&:hover{
+				background-color:rgba(0,0,0,0.1);
+			}
+			
+			&:focus{
+				outline:none;
+			}
+			
+		}
+
+        
+	}
+    .hide{
+        display: none;
+    }
+}
+
+
 `;
 
 const mainheader = (): JSX.Element =>{
+
+    // const [favhide, setfavhide] = useState([]);
+
     return (
         
         <Mainheaderst>
-            <div className="container">
-                {/* 프로필 */}
-                <div className="box1">
-                    <p>이재성 의 작업</p>
-                </div>
-                {/* 기능바 */}
-                <div className="box2">
-                    <ul>
-                        <li>빠른 검색</li>
-                        <li>모든 업데이트</li>
-                        <li>설정과 멤버</li>
-                    </ul>
-                </div>
-                {/* 즐겨찾기 */}
-                <div className="box3">
-                <p>즐겨찾기</p>
-                </div>
-                {/* 개인페이지 */}
-                <div className="box4">
-                <p>개인 페이지</p>
-                </div>
-                {/*휴지통*/}
-                <div className="box5">
-                <p>휴지통</p>
-                </div>
-                {/*새 페이지*/}
-                <div className="box6">
-                <p>새페이지</p>
-                </div>
-            </div>
+            <nav className="menu" >
+                <header className="avatar">
+                    <h2>Jaesung</h2>
+                </header>
+                <ul>
+                    <li  className="fasttool"><span>+</span></li>
+                    <li  className="favpage"><span>즐겨찾기</span></li>
+
+                    <li  className="hide"><span>이재성일기</span></li>
+
+                    <li  className="page"><span>개인페이지</span></li>
+
+                    <li  className="hide"><span>이재성일기</span></li>
+                    
+                    <li  className="trash"><span>휴지통</span></li>
+                </ul>
+            </nav>
             
         </Mainheaderst>
     )
