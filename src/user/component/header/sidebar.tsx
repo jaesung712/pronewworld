@@ -54,6 +54,24 @@ main{
 		padding:0.5em 0;
 		margin:0;
 		
+		.icon{
+            width:14px;
+            heigth:14px;
+            cursor:pointer;
+            &:hover{
+                background-color:rgba(0,0,0,0.1);
+            }
+            
+            &:focus{
+                outline:none;
+            }
+        }
+		.pageicon{
+			padding:0 5px ;
+            width:14px;
+            heigth:14px;
+            
+        }
 		li{
 			padding:0.5em 1em 0.5em 3em;
 			font-size:0.95em;
@@ -118,11 +136,16 @@ const Mainheader = (): JSX.Element =>{
                     <li  className="fasttool"><span>+</span></li>
                     <li  className="favpage" onClick={showfav}><span>  즐겨찾기</span></li>
 
-                    <li  className="hide" style={{ display: favhide }}><span>이재성일기</span></li>
+                    <li  className="hide" style={{ display: favhide }}>
+						<img className="icon" src="./icon/down.png"></img>
+						<img className="pageicon" src="./icon/page.png"></img><span>롤할사람</span></li>
 
-                    <li  className="page"  onClick={showpri}><span>개인페이지</span></li>
+                    <li  className="page"  onClick={showpri}> <span>개인페이지</span></li>
 
-                    <li  className="hide"style={{ display: prihide }} ><span>이재성일기</span></li>
+                    <li  className="hide"style={{ display: prihide }} >
+						<img className="icon" src="./icon/down.png"></img>
+						<img className="pageicon" src="./icon/page.png"></img>
+						<span>롤할사람</span></li>
                     
                     <li  className="trash"><span>콜라보레이션</span></li>
 					<li  className="trash"><span>휴지통</span></li>

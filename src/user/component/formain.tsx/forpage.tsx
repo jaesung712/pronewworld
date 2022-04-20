@@ -1,11 +1,10 @@
 import React, { useState, Component } from "react";
 import styled from "styled-components";
+import Nopage from "../nopage";
 const Forpagest = styled.div`
-    p{
-        margin:0;
-    }
+    
     .container{
-        width:100%;
+        width:100vh;
         background-color: white;
         margin-top:1.8em;
         border: 1px black;
@@ -22,13 +21,15 @@ const Forpage = (): JSX.Element => {
     var child = document.querySelector('.contentbox')
     console.log(child?.childNodes);
     if(child?.childNodes == undefined){
-        console.log("없습니다")
+        console.log("자식객체가 없습니다")
+    }else{
+
     }
     return(
         <Forpagest>
             <div className="container">
                 <div className="contentbox">
-                    
+                    <Nopage></Nopage>
                 </div>
             </div>
         </Forpagest>
