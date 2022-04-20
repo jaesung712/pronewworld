@@ -9,22 +9,30 @@ const Forpagest = styled.div`
         background-color: white;
         margin-top:1.8em;
         border: 1px black;
-        height:100vh;
+        height:auto;
         .contentbox{
             margin: 40px;
         }
     }
 `
-const forpage = (): JSX.Element => {
+const Forpage = (): JSX.Element => {
+    const [checkpage, setcheckpage] = useState(false);
+
+    
+    var child = document.querySelector('.contentbox')
+    console.log(child?.childNodes);
+    if(child?.childNodes == undefined){
+        console.log("없습니다")
+    }
     return(
         <Forpagest>
             <div className="container">
                 <div className="contentbox">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium temporibus atque perferendis quia nihil libero quae quos, dolore cumque ipsam expedita incidunt sapiente fuga consequuntur numquam! Atque deleniti earum qui!</p>
+                    
                 </div>
             </div>
         </Forpagest>
     )
 }
 
-export default forpage;
+export default Forpage;

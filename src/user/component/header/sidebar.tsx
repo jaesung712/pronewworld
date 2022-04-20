@@ -73,18 +73,40 @@ main{
 
         
 	}
-    .hide{
-        display: none;
-    }
+    
 }
 
 
 `;
 
-const mainheader = (): JSX.Element =>{
+const Mainheader = (): JSX.Element =>{
 
-    // const [favhide, setfavhide] = useState([]);
+    const [favhide, setfavhide] = useState("none");
+	const [prihide, setprihide] = useState("none");
 
+	const changeFav = (favhide: React.SetStateAction<string>) => {
+        setfavhide(favhide)
+    }
+	const changePri = (favhide: React.SetStateAction<string>) => {
+        setprihide(favhide)
+    }
+
+	const showfav = () =>{
+		if(favhide !== "none"){
+			changeFav("none")
+		}else{
+			changeFav("block")
+		}
+		
+	}
+	const showpri = () =>{
+		if(prihide !== "none"){
+			changePri("none")
+		}else{
+			changePri("block")
+		}
+		
+	}
     return (
         
         <Mainheaderst>
@@ -94,15 +116,16 @@ const mainheader = (): JSX.Element =>{
                 </header>
                 <ul>
                     <li  className="fasttool"><span>+</span></li>
-                    <li  className="favpage"><span>즐겨찾기</span></li>
+                    <li  className="favpage" onClick={showfav}><span>  즐겨찾기</span></li>
 
-                    <li  className="hide"><span>이재성일기</span></li>
+                    <li  className="hide" style={{ display: favhide }}><span>이재성일기</span></li>
 
-                    <li  className="page"><span>개인페이지</span></li>
+                    <li  className="page"  onClick={showpri}><span>개인페이지</span></li>
 
-                    <li  className="hide"><span>이재성일기</span></li>
+                    <li  className="hide"style={{ display: prihide }} ><span>이재성일기</span></li>
                     
-                    <li  className="trash"><span>휴지통</span></li>
+                    <li  className="trash"><span>콜라보레이션</span></li>
+					<li  className="trash"><span>휴지통</span></li>
                 </ul>
             </nav>
             
@@ -110,4 +133,4 @@ const mainheader = (): JSX.Element =>{
     )
 }
 
-export default mainheader;
+export default Mainheader;

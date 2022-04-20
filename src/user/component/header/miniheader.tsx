@@ -8,15 +8,17 @@ header {
     color: white;
     padding-left: 32px;
     padding-right: 32px;
-    display: flex;
+   
     align-items: center;
     position: fixed;
     top: 0;
     height:1.8em;
     }
     ul {
+    position: absolute;
+    right: 430px;
     list-style:none;
-    padding:0.5em 0;
+    top:5px;
 	margin:0;
 
         .icon{
