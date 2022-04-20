@@ -3,39 +3,43 @@ import styled from "styled-components";
 
 const Miniheaderst = styled.div`
 header {
+    width:100%;
     background: rgba(0,0,0,0.2);
     color: white;
     padding-left: 32px;
     padding-right: 32px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    position: sticky;
+    position: fixed;
     top: 0;
-    height:1.7em;
+    height:1.8em;
     }
-
     ul {
     list-style:none;
     padding:0.5em 0;
-		argin:0;
+	margin:0;
+
+        .icon{
+            width:12px;
+            heigth:12px;
+            cursor:pointer;
+            &:hover{
+                background-color:rgba(0,0,0,0.1);
+            }
+            
+            &:focus{
+                outline:none;
+            }
+        }
     }
     li {
     display: inline-block;
-    margin-left: 16px;
+    margin-left: 18px;
     font-size:0.95em;
     font-weight: bold;
 	transition:all 0.15s linear;
     color: #9b9ba8;
     cursor:pointer;
-    
-    &:hover{
-        background-color:rgba(0,0,0,0.1);
-    }
-    
-    &:focus{
-        outline:none;
-    }
     }
 
     
@@ -45,15 +49,21 @@ const miniheader = (): JSX.Element => {
     return(
         <Miniheaderst>
             <header>
-                <h1></h1>
+                
                 <nav>
                     <ul>
-                    <li>공유</li>
-                    
-                    <img src="./icon/more.png"></img>
-                    <li>댓글</li>
-                    <li>업데이트</li>
-                    <li>더보기</li>
+                    <li>
+                    <img className="icon" src="./icon/repost.png"></img>
+                    </li>
+                    <li>
+                    <img className="icon" src="./icon/right.png"></img>
+                    </li>
+                    <li>
+                    <img className="icon" src="./icon/update.png"></img>
+                    </li>
+                    <li>
+                    <img className="icon" src="./icon/more.png"></img>
+                    </li>
                     </ul>
                 </nav>
             </header>
