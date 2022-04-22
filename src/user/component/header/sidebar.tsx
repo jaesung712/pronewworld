@@ -78,7 +78,7 @@ main{
 			font-weight:regular;
 			transition:all 0.15s linear;
 			cursor:pointer;
-            color: #9b9ba8;
+            color: black;
 			&:hover{
 				background-color:rgba(0,0,0,0.1);
 			}
@@ -125,15 +125,22 @@ const Mainheader = (): JSX.Element =>{
 		}
 		
 	}
+	const logout = () =>{
+		window.location.href="/"
+	}
     return (
         
         <Mainheaderst>
             <nav className="menu" >
                 <header className="avatar">
                     <h2>Jaesung</h2>
+					<button className="logoutbtn" onClick={logout}>멤버</button>
+					<button className="logoutbtn" onClick={logout}>로그아웃</button>
                 </header>
                 <ul>
-                    <li  className="fasttool"><span>+</span></li>
+                    <li  className="fasttool">
+					<img className="icon" src="./icon/fix.png"></img>
+						<span>설정</span></li>
                     <li  className="favpage" onClick={showfav}><span>  즐겨찾기</span></li>
 
                     <li  className="hide" style={{ display: favhide }}>
