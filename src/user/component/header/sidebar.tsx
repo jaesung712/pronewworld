@@ -1,6 +1,7 @@
+import { click } from "@testing-library/user-event/dist/click";
 import React, { useState, Component } from "react";
 import styled from "styled-components";
-
+import Popcontent from "../popup/popcontent";
 const Mainheaderst = styled.div`
 
 main{
@@ -42,10 +43,37 @@ main{
 		background:rgba(0,0,0,0.1);
 		padding:2em 0.5em;
 		text-align:center;
-		
+		.proimg img{
+			width: 150px;
+			height: 150px;
+			object-fit: cover;
+			border-radius:50px;
+		}
+
 		h2{
 			font-weight:normal;
 			margin-bottom:0;
+		}
+		ul{
+			list-style:none;
+			padding:0.5em 0;
+			margin:0;
+			li{
+				padding:0.5em 1em 0.5em 3em;
+				font-size:0.95em;
+				font-weight:regular;
+				transition:all 0.15s linear;
+				cursor:pointer;
+				color: black;
+				&:hover{
+					background-color:rgba(0,0,0,0.1);
+				}
+				
+				&:focus{
+					outline:none;
+				}
+				
+			}
 		}
 	}
 	
@@ -96,7 +124,46 @@ main{
 
 
 `;
+const Editst = styled.div`
+	.pop_container{
+		z-index: 7; 
+		position:fixed; 
+		left:0; top:0; width:100%; 
+		height:100%; background:rgba(0,0,0,0.3);}
+    .xbtn img{
+		position: absolute;
+		z-index: 9; 
+		top:3px;
+		left:942px;
+		cursor:pointer;
+	}
+	.popbox{
+    position: absolute;
+    top: 58px;
+	left: 341px;
+    
+    background:white;
+	border:none; width: 60rem; height: 40rem; border-radius: 15px; padding: 1rem;
 
+	.popsidebar{
+		background: #e1e1e5;
+		height:42.1rem;
+		width:16rem;
+		position:fixed;
+		top:58px;
+		left:341px;
+		z-index:8;
+		outline:none;
+		
+		.title{
+			padding-left:30px
+		}
+		ul{
+			padding-top:4px;
+		}
+	}
+    }
+`
 const Mainheader = (): JSX.Element =>{
 
     const [favhide, setfavhide] = useState("none");
@@ -128,19 +195,70 @@ const Mainheader = (): JSX.Element =>{
 	const logout = () =>{
 		window.location.href="/"
 	}
+	
+	const Sidepop = () =>{
+		return(
+			<Editst>
+            <div className="pop_container" >
+                <div className="popbox">
+					<div className="xbtn">
+					<img onClick={onpopup} src="./icon/x.png"></img>
+					</div>
+					<div className="popsidebar">
+						<div className="title">
+							<h4>jaesung</h4>
+						</div>
+						<ul className="forProfile">
+							<li>내계정</li>
+							<li>알림과 설정</li>
+							
+						</ul>
+						<div className="title">
+							<h4>워크스페이스</h4>
+						</div>
+						<ul className="forworkspace">
+							<li>설정</li>
+							<li>멤버</li>
+							
+						</ul>
+					</div>
+				<div className="popcontent">
+					<Popcontent></Popcontent>
+				</div>
+                </div>
+
+            </div>
+        </Editst>
+		)
+	}
+	const[popupon, setpopupon] = React.useState(false);
+    const onpopup = () => {
+        setpopupon(!popupon);
+         //팝업 창 띄울 시 body 스크롤
+		console.log("온팝업온")
+        if(popupon==false){
+            document.body.style.overflow = "hidden";
+        }else if(popupon==true){
+            document.body.style.overflowY = "unset";
+        }
+    }
+	
     return (
         
         <Mainheaderst>
             <nav className="menu" >
                 <header className="avatar">
                     <h2>Jaesung</h2>
-					<button className="logoutbtn" onClick={logout}>멤버</button>
-					<button className="logoutbtn" onClick={logout}>로그아웃</button>
+					<div className="proimg">
+					<img src="./img/이재성증명사진.jpg"></img>
+					</div>
                 </header>
                 <ul>
-                    <li  className="fasttool">
+                    <li  className="fasttool" onClick={onpopup}>
+					
 					<img className="icon" src="./icon/fix.png"></img>
 						<span>설정</span></li>
+						{popupon?<Sidepop/>:''}
                     <li  className="favpage" onClick={showfav}><span>  즐겨찾기</span></li>
 
                     <li  className="hide" style={{ display: favhide }}>
@@ -157,6 +275,7 @@ const Mainheader = (): JSX.Element =>{
                     <li  className="trash"><span>콜라보레이션</span></li>
 					<li  className="trash"><span>휴지통</span></li>
                 </ul>
+				
             </nav>
             
         </Mainheaderst>
