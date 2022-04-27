@@ -3,6 +3,7 @@ import React, { useState, Component } from "react";
 import styled from "styled-components";
 import Popcontent from "../popup/popcontent";
 import { MouseEvent } from "react"
+import { useEffect } from "react";
 
 
 
@@ -168,20 +169,44 @@ const Editst = styled.div`
 	}
     }
 `
-const Mainheader = (props): JSX.Element =>{
-	
+const Mainheader = (): JSX.Element =>{
+	useEffect(()=>{
+		const clickT1 : HTMLElement = document.getElementsByClassName("target")[0] as HTMLElement
+		
+	})
     const [favhide, setfavhide] = useState("none");
 	const [prihide, setprihide] = useState("none");
 
-	type CustomMouseEvent = MouseEvent<HTMLElement>
-	
-	
-	
-	const clickside = (event: CustomMouseEvent) => {
-        // code ....
-    }
+	// 클릭되는 요소의 id 혹은 classname을 알아서 찾게만드려다가 실패했다. 함수 4개를 하나로 줄이려는 시도였지만 ...
 
-
+	//import { MouseEvent } from "react" 를 먼저 작성하고!
+	// type CustomMouseEvent = MouseEvent<HTMLLIElement>
+	// const clickside = (event: CustomMouseEvent) => {
+	// 	console.log(event.target)
+	// 	const change: EventTarget = event.target;
+    //     console.log(change.toString());
+	// 	console.log(typeof event.currentTarget);
+	// 	var clickthat = event.currentTarget.nodeValue;
+	// 	console.log(clickthat)
+    // }
+	
+	const [showcontent , setshowcontent] = React.useState("t1")
+	const clickt1 = ()=>{
+		setshowcontent("t1")
+		console.log("클릭t1" + showcontent)
+	}
+	const clickt2 = ()=>{
+		setshowcontent("t2")
+		console.log("클릭t2" +showcontent)
+	}
+	const clickt3 = ()=>{
+		setshowcontent("t3")
+		console.log("클릭t3" +showcontent)
+	}
+	const clickt4 = ()=>{
+		setshowcontent("t4")
+		console.log("클릭t4" +showcontent)
+	}
 
 	const changeFav = (favhide: React.SetStateAction<string>) => {
         setfavhide(favhide)
@@ -223,16 +248,16 @@ const Mainheader = (props): JSX.Element =>{
 							<h4>jaesung</h4>
 						</div>
 						<ul className="forProfile">
-							<li value={"t1"} onClick={(e)=> {clickside(e)}}>내계정</li>
-							<li>알림과 설정</li>
+							<li className="target" onClick={clickt1}>내계정</li>
+							<li className="target"  onClick={clickt2}>알림과 설정</li>
 							
 						</ul>
 						<div className="title">
 							<h4>워크스페이스</h4>
 						</div>
 						<ul className="forworkspace">
-							<li>설정</li>
-							<li>멤버</li>
+							<li className="target" onClick={clickt3}>설정</li>
+							<li className="target" onClick={clickt4}>멤버</li>
 							
 						</ul>
 					</div>

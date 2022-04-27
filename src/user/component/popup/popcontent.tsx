@@ -63,7 +63,7 @@ const Popcontent = ():JSX.Element => {
     
 
     useEffect(() =>{
-        console.log("useeffect온");
+        
         // 팝업콘텐츠 토글..
         if(showpage.type === "type1" ){
             sett1("block");
