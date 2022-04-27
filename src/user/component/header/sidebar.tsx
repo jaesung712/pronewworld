@@ -2,6 +2,10 @@ import { click } from "@testing-library/user-event/dist/click";
 import React, { useState, Component } from "react";
 import styled from "styled-components";
 import Popcontent from "../popup/popcontent";
+import { MouseEvent } from "react"
+
+
+
 const Mainheaderst = styled.div`
 
 main{
@@ -164,10 +168,20 @@ const Editst = styled.div`
 	}
     }
 `
-const Mainheader = (): JSX.Element =>{
-
+const Mainheader = (props): JSX.Element =>{
+	
     const [favhide, setfavhide] = useState("none");
 	const [prihide, setprihide] = useState("none");
+
+	type CustomMouseEvent = MouseEvent<HTMLElement>
+	
+	
+	
+	const clickside = (event: CustomMouseEvent) => {
+        // code ....
+    }
+
+
 
 	const changeFav = (favhide: React.SetStateAction<string>) => {
         setfavhide(favhide)
@@ -209,7 +223,7 @@ const Mainheader = (): JSX.Element =>{
 							<h4>jaesung</h4>
 						</div>
 						<ul className="forProfile">
-							<li>내계정</li>
+							<li value={"t1"} onClick={(e)=> {clickside(e)}}>내계정</li>
 							<li>알림과 설정</li>
 							
 						</ul>

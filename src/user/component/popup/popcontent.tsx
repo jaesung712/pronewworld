@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, Component, useEffect } from "react";
 import styled from "styled-components";
 
 const Popcontentst = styled.div`
@@ -44,14 +44,56 @@ const Popcontentst = styled.div`
             }
             }
         }
+        
     }
 `
 
-const Popcontent = ():JSX.Element =>{
+const Popcontent = ():JSX.Element => {
+
+    interface Spage  { 
+        type: string;
+    };
+    const [showpage, setshowpage] = useState({type: "type1"});
+    
+    const [t1,sett1] = useState("none");
+    const [t2,sett2] = useState("none");
+    const [t3,sett3] = useState("none");
+    const [t4,sett4] = useState("none");
+
+    
+
+    useEffect(() =>{
+        console.log("useeffect온");
+        // 팝업콘텐츠 토글..
+        if(showpage.type === "type1" ){
+            sett1("block");
+            sett2("none");
+            sett3("none");
+            sett4("none");
+        }else if(showpage.type === "type2" ){
+            sett1("none");
+            sett2("block");
+            sett3("none");
+            sett4("none");
+        }else if(showpage.type === "type3" ){
+            sett1("none");
+            sett2("none");
+            sett3("block");
+            sett4("none");
+        }else if(showpage.type === "type4" ){
+            sett1("none");
+            sett2("none");
+            sett3("none");
+            sett4("block");
+        }
+    })
+    
     return(
         <Popcontentst>
             <div className="container">
                 <div className="contentbox">
+                    {/* 내계정 */}
+                    <div className="type1" style={{ display: t1 }} >
                     <div className="title">
                         <h3>계정</h3>
                     </div>
@@ -82,6 +124,17 @@ const Popcontent = ():JSX.Element =>{
                         <h3>위험구역</h3>
                         <button>내 계정 삭제</button>
                     </div> 
+                    </div>
+                    {/* 알림과 설정 */}
+                    <div className="type2" style={{ display: t2 }}>
+
+                    </div>
+                    <div className="type3" style={{ display: t3 }}>
+
+                    </div>
+                    <div className="type4" style={{ display: t4 }}>
+
+                    </div>
                 </div>
                 
             </div>
