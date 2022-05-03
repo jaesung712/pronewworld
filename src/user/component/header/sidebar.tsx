@@ -1,7 +1,7 @@
 import { click } from "@testing-library/user-event/dist/click";
 import React, { useState, Component } from "react";
 import styled from "styled-components";
-import Popcontent from "../popup/popcontent";
+import Spt1 from "../popup/sidepopt1";
 import { MouseEvent } from "react"
 import { useEffect } from "react";
 
@@ -129,84 +129,11 @@ main{
 
 
 `;
-const Editst = styled.div`
-	.pop_container{
-		z-index: 7; 
-		position:fixed; 
-		left:0; top:0; width:100%; 
-		height:100%; background:rgba(0,0,0,0.3);}
-    .xbtn img{
-		position: absolute;
-		z-index: 9; 
-		top:3px;
-		left:942px;
-		cursor:pointer;
-	}
-	.popbox{
-    position: absolute;
-    top: 58px;
-	left: 341px;
-    
-    background:white;
-	border:none; width: 60rem; height: 40rem; border-radius: 15px; padding: 1rem;
 
-	.popsidebar{
-		background: #e1e1e5;
-		height:42.1rem;
-		width:16rem;
-		position:fixed;
-		top:58px;
-		left:341px;
-		z-index:8;
-		outline:none;
-		
-		.title{
-			padding-left:30px
-		}
-		ul{
-			padding-top:4px;
-		}
-	}
-    }
-`
 const Mainheader = (): JSX.Element =>{
-	useEffect(()=>{
-		const clickT1 : HTMLElement = document.getElementsByClassName("target")[0] as HTMLElement
-		
-	})
+	
     const [favhide, setfavhide] = useState("none");
 	const [prihide, setprihide] = useState("none");
-
-	// 클릭되는 요소의 id 혹은 classname을 알아서 찾게만드려다가 실패했다. 함수 4개를 하나로 줄이려는 시도였지만 ...
-
-	//import { MouseEvent } from "react" 를 먼저 작성하고!
-	// type CustomMouseEvent = MouseEvent<HTMLLIElement>
-	// const clickside = (event: CustomMouseEvent) => {
-	// 	console.log(event.target)
-	// 	const change: EventTarget = event.target;
-    //     console.log(change.toString());
-	// 	console.log(typeof event.currentTarget);
-	// 	var clickthat = event.currentTarget.nodeValue;
-	// 	console.log(clickthat)
-    // }
-	
-	const [showcontent , setshowcontent] = React.useState("t1")
-	const clickt1 = ()=>{
-		setshowcontent("t1")
-		console.log("클릭t1" + showcontent)
-	}
-	const clickt2 = ()=>{
-		setshowcontent("t2")
-		console.log("클릭t2" +showcontent)
-	}
-	const clickt3 = ()=>{
-		setshowcontent("t3")
-		console.log("클릭t3" +showcontent)
-	}
-	const clickt4 = ()=>{
-		setshowcontent("t4")
-		console.log("클릭t4" +showcontent)
-	}
 
 	const changeFav = (favhide: React.SetStateAction<string>) => {
         setfavhide(favhide)
@@ -235,41 +162,7 @@ const Mainheader = (): JSX.Element =>{
 		window.location.href="/"
 	}
 	
-	const Sidepop = () =>{
-		return(
-			<Editst>
-            <div className="pop_container" >
-                <div className="popbox">
-					<div className="xbtn">
-					<img onClick={onpopup} src="./icon/x.png"></img>
-					</div>
-					<div className="popsidebar">
-						<div className="title">
-							<h4>jaesung</h4>
-						</div>
-						<ul className="forProfile">
-							<li className="target" onClick={clickt1}>내계정</li>
-							<li className="target"  onClick={clickt2}>알림과 설정</li>
-							
-						</ul>
-						<div className="title">
-							<h4>워크스페이스</h4>
-						</div>
-						<ul className="forworkspace">
-							<li className="target" onClick={clickt3}>설정</li>
-							<li className="target" onClick={clickt4}>멤버</li>
-							
-						</ul>
-					</div>
-				<div className="popcontent">
-					<Popcontent></Popcontent>
-				</div>
-                </div>
-
-            </div>
-        </Editst>
-		)
-	}
+	
 	const[popupon, setpopupon] = React.useState(false);
     const onpopup = () => {
         setpopupon(!popupon);
@@ -281,7 +174,11 @@ const Mainheader = (): JSX.Element =>{
             document.body.style.overflowY = "unset";
         }
     }
-	
+	const Sidepop = () =>{
+		return(
+			<Spt1 onpopup={onpopup}></Spt1>
+		)
+	}
     return (
         
         <Mainheaderst>
