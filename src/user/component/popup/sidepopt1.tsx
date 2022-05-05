@@ -311,8 +311,7 @@ const Spt1 = ({onpopup}): JSX.Element =>{
 					</div>
 					<div className="popsidebar">
 						<div className="title">
-							<h4>jaesung</h4>
-							<h5>{showcontent}</h5>
+							<h4>jaesung</h4>    
 						</div>
 						<ul className="forProfile">
 							<li  value={"t1"} className="target" onClick={clickt1}>내계정</li>

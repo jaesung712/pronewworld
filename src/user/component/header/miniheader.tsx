@@ -47,6 +47,10 @@ header {
     
 
 `
+
+const showmore = ()=>{
+
+}
 const miniheader = (): JSX.Element => {
     return(
         <Miniheaderst>
@@ -64,7 +68,7 @@ const miniheader = (): JSX.Element => {
                     <img className="icon" src="./icon/update.png"></img>
                     </li>
                     <li>
-                    <img className="icon" src="./icon/more.png"></img>
+                    <img className="icon" src="./icon/more.png" onClick={showmore}></img>
                     </li>
                     </ul>
                 </nav>
