@@ -18,6 +18,8 @@ function App() {
         {/*user*/}
         <Route path={"/"} element={<SignInPage/>} />
         <Route path={"/main"} element={<Main/>} />
+        
+
     
       </Routes>
     </Router>
