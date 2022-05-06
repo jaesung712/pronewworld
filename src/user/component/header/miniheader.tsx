@@ -1,5 +1,6 @@
-import React, { useState, Component } from "react";
+import React, { useState, Component ,useEffect ,forwardRef ,useImperativeHandle} from "react";
 import styled from "styled-components";
+import Headerpop from "../popup/headerpop";
 
 const Miniheaderst = styled.div`
 header {
@@ -44,14 +45,15 @@ header {
     cursor:pointer;
     }
 
-    
+    .morepop{
+        transition:all 0.15s linear;
+
+    }
 
 `
 
-const showmore = ()=>{
-
-}
-const miniheader = (): JSX.Element => {
+const Miniheader = ({showmore}): JSX.Element => {
+    
     return(
         <Miniheaderst>
             <header>
@@ -73,8 +75,12 @@ const miniheader = (): JSX.Element => {
                     </ul>
                 </nav>
             </header>
+            {/* <div className="morepop" style={{display: moredis}}>
+            <Headerpop></Headerpop>
+            </div> */}
+            
         </Miniheaderst>
     )
 }
 
-export default miniheader;
+export default Miniheader;

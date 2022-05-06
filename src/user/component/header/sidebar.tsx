@@ -1,5 +1,5 @@
 import { click } from "@testing-library/user-event/dist/click";
-import React, { useState, Component } from "react";
+import React, { useState, Component , forwardRef, useImperativeHandle} from "react";
 import styled from "styled-components";
 import Spt1 from "../popup/sidepopt1";
 import { MouseEvent } from "react"
@@ -130,7 +130,7 @@ main{
 
 `;
 
-const Mainheader = (): JSX.Element =>{
+const Mainheader = ({onpopup}): JSX.Element =>{
 	
     const [favhide, setfavhide] = useState("none");
 	const [prihide, setprihide] = useState("none");
@@ -163,22 +163,7 @@ const Mainheader = (): JSX.Element =>{
 	}
 	
 	
-	const[popupon, setpopupon] = React.useState(false);
-    const onpopup = () => {
-        setpopupon(!popupon);
-         //팝업 창 띄울 시 body 스크롤
-		console.log("온팝업온")
-        if(popupon==false){
-            document.body.style.overflow = "hidden";
-        }else if(popupon==true){
-            document.body.style.overflowY = "unset";
-        }
-    }
-	const Sidepop = () =>{
-		return(
-			<Spt1 onpopup={onpopup}></Spt1>
-		)
-	}
+	
     return (
         
         <Mainheaderst>
@@ -194,7 +179,7 @@ const Mainheader = (): JSX.Element =>{
 					
 					<img className="icon" src="./icon/fix.png"></img>
 						<span>설정</span></li>
-						{popupon?<Sidepop/>:''}
+						
                     <li  className="favpage" onClick={showfav}><span>  즐겨찾기</span></li>
 
                     <li  className="hide" style={{ display: favhide }}>

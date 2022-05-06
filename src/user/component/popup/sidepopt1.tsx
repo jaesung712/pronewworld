@@ -37,7 +37,25 @@ border:none; width: 60rem; height: 40rem; border-radius: 15px; padding: 1rem;
         padding-left:30px
     }
     ul{
-        padding-top:4px;
+        list-style:none;
+        padding:0.5em 0;
+        margin:0;
+        li{
+            padding:0.5em 1em 0.5em 3em;
+            font-size:0.95em;
+            font-weight:regular;
+            transition:all 0.15s linear;
+            cursor:pointer;
+            color: black;
+            &:hover{
+                background-color:rgba(0,0,0,0.1);
+            }
+            
+            &:focus{
+                outline:none;
+            }
+            
+        }
     }
 }
 }
